@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viral "Vibe Check" / Roast Tool ⚡</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0b0f19;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: #151c2c;
+      padding: 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid #2d3748;
+    }
+    h2 { margin-top: 0; text-align: center; color: #00f2fe; }
+    p.subtitle { text-align: center; color: #a0aec0; margin-bottom: 25px; }
+    label { display: block; margin-top: 15px; font-weight: bold; font-size: 14px; color: #cbd5e0; }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #4a5568;
+      background: #0b0f19;
+      color: white;
+      font-size: 15px;
+    }
+    textarea { resize: vertical; height: 80px; }
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    button:active { transform: scale(0.98); }
+    .result-box {
+      margin-top: 25px;
+      padding: 20px;
+      background: #0b0f19;
+      border-radius: 12px;
+      display: none;
+      border: 2px solid #00f2fe;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+    .handle-display { font-size: 20px; font-weight: bold; color: #fff; margin-bottom: 10px; }
+    .vibe-score { color: #ff007f; font-weight: bold; font-size: 16px; margin-bottom: 12px; }
+    .roast-text { color: #e2e8f0; font-size: 15px; line-height: 1.5; font-style: italic; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🎭 Vibe Check & Roast</h2>
+    <p class="subtitle">Enter a handle to analyze their vibe!</p>
+
+    <label for="handle">User Handle / Name</label>
+    <input type="text" id="handle" placeholder="e.g. @username or a short bio">
+
+    <label for="bio">Bio or Trait (Optional)</label>
+    <textarea id="bio" placeholder="e.g. Enjoys coffee, codes late at night..."></textarea>
+
+    <button onclick="runVibeCheck()">Check Vibe & Roast 🚀</button>
+
+    <div class="result-box" id="resultBox">
+      <div class="handle-display" id="outHandle"></div>
+      <div class="vibe-score" id="outVibe"></div>
+      <div class="roast-text" id="outRoast"></div>
+    </div>
+  </div>
+
+  <script>
+    const roasts = [
+      "Your code runs faster than your social life, and that's not necessarily a compliment. 💀",
+      "You spend 4 hours automating a task that takes 5 seconds to do manually. Absolute galaxy brain. 🧠",
+      "Your commit history is active, but your screen time report is terrifying. 📱",
+      "You have 50 unfinished projects in VS Code and 0 regret about starting a 51st. 🚀"
+    ];
+
+    const vibes = [
+      "🔥 8.5/10 - Peak Coding Energy",
+      "⚡ 9.1/10 - Unstoppable Builder Vibe",
+      "☕ 7.8/10 - Fueled by Caffeine and Bugs",
+      "🎯 9.9/10 - Speedrunner Vibe"
+    ];
+
+    function runVibeCheck() {
+      const handle = document.getElementById('handle').value.trim() || "@anonymous";
+      
+      const randomRoast = roasts[Math.floor(Math.random() * roasts.length)];
+      const randomVibe = vibes[Math.floor(Math.random() * vibes.length)];
+
+      document.getElementById('outHandle').innerText = handle;
+      document.getElementById('outVibe').innerText = `Vibe Check: ${randomVibe}`;
+      document.getElementById('outRoast').innerText = `"${randomRoast}"`;
+
+      document.getElementById('resultBox').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
